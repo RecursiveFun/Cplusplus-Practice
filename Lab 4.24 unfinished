@@ -28,54 +28,81 @@ int pennies = 1;
 int total;
 int tempVal;
 
+
    cin >> total;     //Get input and assign to total
 
    //Total is equal to or less than zero output "No change"
-   if (total <= 0) {
+   if (total <= 0){ 
       cout << "No change" << endl;
    }
    else {
       //How many dollars in total
       tempVal = total / dollars;
+      if (tempVal == 0) {
+      }
+      else {
+      total = total - (tempVal * dollars);
          if (tempVal <= 1){
             cout << tempVal << " Dollar" << endl;
          }
-         else{
+         else {
             cout << tempVal << " Dollars" << endl;;
          }
+      }
+   
       //How many quarters in total
       tempVal = total / quarters;
-         if (tempVal <= 1){
-            cout << tempVal << " Quarter" << endl;
+         if (tempVal == 0) {
          }
-         else{
-            cout << tempVal << " Quarters" << endl;;
+         else {
+            total = total - (tempVal * quarters);
+            if (tempVal <= 1){
+               cout << tempVal << " Quarter" << endl;
+            }
+            else {
+               cout << tempVal << " Quarters" << endl;;
+            }
          }
+      
       //How many dimes in total
       tempVal = total / dimes;
-         if (tempVal <= 1){
+      total = total - (tempVal * dimes);
+      if (tempVal == 0) {
+         }
+      else {
+         if (tempVal <= 1) {
             cout << tempVal << " Dime" << endl;
          }
          else{
             cout << tempVal << " Dimes" << endl;;
          }
+      }
       //How many nickles in total
       tempVal = total / nickels;
+      total = total - (tempVal * nickels);
+      if (tempVal == 0) {
+         }
+      else {
          if (tempVal <= 1){
             cout << tempVal << " Nickel" << endl;
          }
          else{
             cout << tempVal << " Nickels" << endl;;
          }
+      }
       //How many pennies in total
       tempVal = total / pennies;
-         if (tempVal <= 1){
+      total = total - (tempVal * pennies);
+      if (tempVal == 0) {
+         }
+      else {
+         if (tempVal <= 1) {
             cout << tempVal << " Penny" << endl;
          }
-         else{
+         else {
             cout << tempVal << " Pennies" << endl;;
          }
-   }
-
+      }
    return 0;
+   }
 }
