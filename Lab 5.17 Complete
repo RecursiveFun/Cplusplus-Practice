@@ -1,0 +1,33 @@
+/*
+
+5.17 LAB: Remove all non alpha characters
+Write a program that removes all non alpha characters from the given input.
+
+Ex: If the input is:
+
+-Hello, 1 world$!
+the output is:
+
+Helloworld
+
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+int i;
+string inputString;
+string newString;
+
+getline(cin, inputString);
+   
+   for (i = 0; i < inputString.size(); ++i) {
+      if (isalpha(inputString.at(i)))
+      newString.push_back(inputString.at(i));
+   }
+   
+   cout << newString << endl;
+
+   return 0;
+}
