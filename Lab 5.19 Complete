@@ -1,0 +1,41 @@
+/*
+
+5.19 LAB: Print string in reverse
+Write a program that takes in a line of text as input, and outputs that line of text in reverse. The program repeats, ending when the user enters "Done", "done", or "d" for the line of text.
+
+Ex: If the input is:
+
+Hello there
+Hey
+done
+then the output is:
+
+ereht olleH
+yeH
+
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+string inputString;
+int i;
+int n;
+string reverseString;
+
+while (true) {
+getline(cin, inputString); //Get entire line as input
+   if ((inputString == "d") || (inputString == "Done") || (inputString == "done")) {
+      break;
+   }
+   n = inputString.size();
+      for (i = n-1; i >= 0; --i) {
+         reverseString.push_back(inputString.at(i));
+      }
+      cout << reverseString << endl;
+      reverseString = "";
+}
+
+   return 0;
+}
