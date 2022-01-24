@@ -1,0 +1,47 @@
+/* 
+6.18 LAB: Output numbers in reverse
+Write a program that reads a list of integers, and outputs those integers in reverse. The input begins with an integer indicating the number of integers that follow. For coding simplicity, follow each output integer by a comma, including the last one.
+
+Ex: If the input is:
+
+5 2 4 6 8 10
+the output is:
+
+10,8,6,4,2,
+*/
+
+#include <iostream>
+#include <vector>   // Must include vector library to use vectors
+using namespace std;
+
+int main() {
+   int userInput;
+   int i;
+   int tempVal;
+   int numOfInputs;
+ 
+   cin >> userInput;
+   numOfInputs = userInput;
+   vector<int> userInts(numOfInputs); // A vector to hold the user's input integers
+   cin >> userInput;
+   
+   // Loop through userInputs and add them to the userInts vector one at a time
+   for (i = 0; i < numOfInputs; ++i) {
+      userInts.at(i) = userInput;
+      cin >> userInput;
+   }
+   // Reverse the vector
+   for (i = 0; i < (userInts.size() / 2); ++i){
+      tempVal = userInts.at(i);
+      userInts.at(i) = userInts.at(userInts.size() - 1 - i);
+      userInts.at(userInts.size() - 1 - i) = tempVal;
+   }
+   
+   // Print values
+   for (i = 0; i < userInts.size(); ++i) {
+      cout << userInts.at(i) << ',';
+   }
+   cout << endl;
+
+   return 0;
+}
