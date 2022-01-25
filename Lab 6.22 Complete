@@ -1,0 +1,57 @@
+/* 
+Write a program that reads a list of words. Then, the program outputs those words and their frequencies. The input begins with an integer indicating the number of words that follow. Assume that the list will always contain fewer than 20 words.
+
+Ex: If the input is:
+
+5 hey hi Mark hi mark
+the output is:
+
+hey - 1
+hi - 2
+Mark - 1
+hi - 2
+mark - 1
+Hint: Use two vectors, one vector for the strings and one vector for the frequencies.
+*/
+
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+int main() {
+int i;
+int j;
+int count;
+int numOfInputs;
+string inputWords;
+
+cin >> numOfInputs; //Get number of inputs to provide vector size
+
+vector<string> listOfWords(numOfInputs); //Create vector to have a list of words
+vector<int> frequencyOfWords(numOfInputs); //Create a vector to keep frequency of words in list
+
+cin >> inputWords; //Get first input word for the start of the loop
+
+for(i = 0; i < numOfInputs; ++i){ //Iterate through vector adding inputWords for each index
+   listOfWords.at(i) = inputWords;
+   cin >> inputWords;
+}
+
+for(i = 0; i < numOfInputs; ++i) { //Check the frequency of each word by counting and add them to the frequency vector at the correct index
+   count = 0;
+   for(j = 0; j < numOfInputs; ++j) {
+      if (listOfWords.at(i) == listOfWords.at(j)) {
+         count++;
+      }
+   }
+   frequencyOfWords.at(i) = count;
+}
+
+for(i = 0; i < numOfInputs; ++i) { //Output list of words with frequency
+   cout << listOfWords.at(i) << " - " << frequencyOfWords.at(i) << endl;
+}
+   
+
+   return 0;
+}
