@@ -21,18 +21,18 @@ int main() {
    int i;
    vector<int> inputInts;
 
-   do {
+   do {   //Take in inputs and push them into the vector if inputs are greater than 0
       cin >> i;
       if(i < 0) break;
       inputInts.push_back(i);
    }
    while(true);
 
-   if (inputInts.size() > 9) {
+   if (inputInts.size() > 9) {   //If number of inputs is greater than 9 print "Too many numbers"
       cout << "Too many numbers" << endl;
    }
    else {
-      cout << "Middle item: " << inputInts.at(inputInts.size() / 2) << endl;
+      cout << "Middle item: " << inputInts.at(inputInts.size() / 2) << endl;   //Otherwise print "Middle item: " along with the middle vector element
    }
 
    return 0;
