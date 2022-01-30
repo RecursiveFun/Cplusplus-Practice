@@ -1,0 +1,63 @@
+/*
+7.24 LAB: Sort a vector
+Define a function named SortVector that takes a vector of integers as a parameter. Function SortVector() modifies the vector parameter by sorting the elements in descending order (highest to lowest). Then write a main program that reads a list of integers from input, stores the integers in a vector, calls SortVector(), and outputs the sorted vector. The first input integer indicates how many numbers are in the list.
+
+Ex: If the input is:
+
+5 10 4 39 12 2
+the output is:
+
+39,12,10,4,2,
+For coding simplicity, follow every output value by a comma, including the last one.
+
+Your program must define and call the following function:
+void SortVector(vector<int>& myVec)
+*/
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void SortVector(vector<int>& myVec) { //Bubble sort the vector from greatest to least
+    int i;
+    int j;
+    int temp;
+    int pass = 0;
+    for (i = 0; i < myVec.size(); i++) {
+        for (j = i + 1; j < myVec.size(); j++) {
+            if (myVec[i] < myVec[j]) {
+                temp = myVec[j];
+                myVec[j] = myVec[i];
+                myVec[i] = temp;
+            }
+        }
+        pass++;
+    }
+}
+
+int main() {
+    int i;
+    int userInput;
+    vector<int> myVec; // Create vector
+    
+   cin >> userInput; //Get number of inputs
+   do {
+         cin >> userInput;
+         if (userInput == 0){
+            break;
+         }
+        myVec.push_back(userInput);
+        userInput = 0;
+   } while (true);
+
+
+
+    SortVector(myVec); //Call SortVector function on vector
+
+    for (i = 0; i < myVec.size(); ++i) {  //Output vector after being sorted
+        cout << myVec.at(i) << ',';
+    }
+    cout << endl;
+    return 0;
+}
